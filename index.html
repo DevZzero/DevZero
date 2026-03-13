@@ -6,8 +6,7 @@
     <title>DevZero - Project Hub</title>
     <style>
         :root {
-            /* الألوان مستوحاة مباشرة من قيم الـ RGB في كود C++ الخاص بك */
-            --bg-deep: #0a0512; /* QColor(10, 5, 18) */
+            --bg-deep: #0a0512;
             --nebula-glow: #1a0b2e;
             --accent-blue: #58a6ff;
             --star-white: rgba(220, 210, 255, 0.9);
@@ -23,10 +22,9 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            overflow: hidden; /* لمنع التمرير بسبب النجوم المتحركة */
+            overflow: hidden;
         }
 
-        /* خلفية النجوم المتحركة (تأثير الـ Constellation) */
         .stars-container {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -61,7 +59,7 @@
         .logo-img {
             width: 110px;
             height: 110px;
-            border-radius: 22px; /* تصميم عصري يشبه تطبيقات الويندوز */
+            border-radius: 22px;
             margin-bottom: 25px;
             border: 2px solid rgba(88, 166, 255, 0.3);
             box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
@@ -74,7 +72,7 @@
         }
 
         h1 { font-size: 26px; margin: 0 0 10px 0; letter-spacing: 1px; }
-        p { color: #8b949e; font-size: 14px; margin-bottom: 35px; }
+        .tagline { color: #8b949e; font-size: 16px; margin-bottom: 35px; font-weight: 500; }
 
         .link-card {
             background: rgba(33, 38, 45, 0.7);
@@ -96,11 +94,9 @@
             background: rgba(88, 166, 255, 0.1);
             border-color: var(--accent-blue);
             color: white;
-            transform: translateX(-5px); /* حركة انسيابية لليمين */
+            transform: translateX(-5px);
             box-shadow: 0 0 15px rgba(88, 166, 255, 0.1);
         }
-
-        .link-card i { font-size: 18px; }
     </style>
 </head>
 <body>
@@ -111,16 +107,15 @@
         <img src="icon.jpg" alt="DevZero Logo" class="logo-img">
         
         <h1>DevZero</h1>
-        <p>Advanced Tools for ZeroMiss Project</p>
+        <p class="tagline">خيارك الأول.. والوجهة اللي تجمّد عليها!</p>
 
-        <a href="رابط_ميجا_هنا" class="link-card">🚀 تحميل البرنامج (Version 1.0)</a>
-        <a href="رابط_الديسكورد_هنا" class="link-card">💬 مجتمع DevZero الرسمي</a>
-        <a href="رابط_المتجر_هنا" class="link-card">🛡️ تفعيل الاشتراك (License)</a>
-        <a href="mailto:your-email@gmail.com" class="link-card">📧 الدعم الفني المباشر</a>
+        <a href="رابط_المتجر_هنا" class="link-card">🛒 متجر DevZero الرسمي</a>
+        <a href="رابط_تيك_توك_هنا" class="link-card">📱 تابعنا على تيك توك</a>
+        <a href="رابط_انستقرام_هنا" class="link-card">📸 حساب الانستقرام</a>
+        <a href="mailto:your-email@gmail.com" class="link-card">🛠️ الدعم الفني والمساعدة</a>
     </div>
 
     <script>
-        // كود بسيط لتوليد نجوم عشوائية مثل منطق generateOrganicGrid في كودك
         const starsContainer = document.getElementById('stars');
         for (let i = 0; i < 50; i++) {
             const star = document.createElement('div');
