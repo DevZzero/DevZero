@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevZero - Links</title>
+    <title>DevZero - Project Hub</title>
     <style>
+        :root {
+            /* الألوان مستوحاة مباشرة من قيم الـ RGB في كود C++ الخاص بك */
+            --bg-deep: #0a0512; /* QColor(10, 5, 18) */
+            --nebula-glow: #1a0b2e;
+            --accent-blue: #58a6ff;
+            --star-white: rgba(220, 210, 255, 0.9);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0d1117; /* لون غامق مثل ثيم البرمجة */
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(circle at center, var(--nebula-glow) 0%, var(--bg-deep) 100%);
             color: white;
             display: flex;
             flex-direction: column;
@@ -15,57 +23,116 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
+            overflow: hidden; /* لمنع التمرير بسبب النجوم المتحركة */
         }
+
+        /* خلفية النجوم المتحركة (تأثير الـ Constellation) */
+        .stars-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: var(--star-white);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle var(--speed) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
         .container {
             width: 90%;
-            max-width: 400px;
+            max-width: 420px;
             text-align: center;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px 20px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
-        .logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: #21262d;
-            margin-bottom: 20px;
+
+        .logo-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 22px; /* تصميم عصري يشبه تطبيقات الويندوز */
+            margin-bottom: 25px;
+            border: 2px solid rgba(88, 166, 255, 0.3);
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+            transition: 0.5s;
+        }
+
+        .logo-img:hover {
+            transform: rotate(5deg) scale(1.05);
+            border-color: var(--accent-blue);
+        }
+
+        h1 { font-size: 26px; margin: 0 0 10px 0; letter-spacing: 1px; }
+        p { color: #8b949e; font-size: 14px; margin-bottom: 35px; }
+
+        .link-card {
+            background: rgba(33, 38, 45, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #c9d1d9;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 24px;
-            border: 2px solid #58a6ff;
-        }
-        h1 { font-size: 22px; margin-bottom: 10px; }
-        p { color: #8b949e; margin-bottom: 30px; }
-        .link-card {
-            background-color: #21262d;
-            border: 1px solid #30363d;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: white;
-            display: block;
+            gap: 12px;
             font-weight: 500;
-            transition: 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         .link-card:hover {
-            background-color: #30363d;
-            border-color: #58a6ff;
-            transform: translateY(-3px);
+            background: rgba(88, 166, 255, 0.1);
+            border-color: var(--accent-blue);
+            color: white;
+            transform: translateX(-5px); /* حركة انسيابية لليمين */
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.1);
         }
+
+        .link-card i { font-size: 18px; }
     </style>
 </head>
 <body>
 
-    <div class="logo">DZ</div> <div class="container">
-        <h1>DevZero</h1>
-        <p>الموقع الرسمي لتحميل أدوات ZeroMiss</p>
+    <div class="stars-container" id="stars"></div>
 
-        <a href="رابط_ميجا_هنا" class="link-card" target="_blank">🚀 تحميل برنامج ZeroMiss</a>
-        <a href="رابط_الديسكورد_هنا" class="link-card" target="_blank">💬 انضم إلى سيرفر الديسكورد</a>
-        <a href="رابط_الشراء_هنا" class="link-card" target="_blank">🛒 متجر DevZero</a>
-        <a href="mailto:your-email@gmail.com" class="link-card">📧 تواصل مع الدعم الفني</a>
+    <div class="container">
+        <img src="icon.jpg" alt="DevZero Logo" class="logo-img">
+        
+        <h1>DevZero</h1>
+        <p>Advanced Tools for ZeroMiss Project</p>
+
+        <a href="رابط_ميجا_هنا" class="link-card">🚀 تحميل البرنامج (Version 1.0)</a>
+        <a href="رابط_الديسكورد_هنا" class="link-card">💬 مجتمع DevZero الرسمي</a>
+        <a href="رابط_المتجر_هنا" class="link-card">🛡️ تفعيل الاشتراك (License)</a>
+        <a href="mailto:your-email@gmail.com" class="link-card">📧 الدعم الفني المباشر</a>
     </div>
 
+    <script>
+        // كود بسيط لتوليد نجوم عشوائية مثل منطق generateOrganicGrid في كودك
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.setProperty('--speed', (Math.random() * 3 + 2) + 's');
+            starsContainer.appendChild(star);
+        }
+    </script>
 </body>
 </html>
